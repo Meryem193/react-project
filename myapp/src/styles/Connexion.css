@@ -123,5 +123,7 @@ form {
 .logo {
   width: 300px;
   height: auto;
-  margin: 0 auto 200px;
+  display: block;
+  margin: 0 auto 10px; /* supprime le grand espace sous le logo */
 }
+
