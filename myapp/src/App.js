@@ -1,8 +1,9 @@
 
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
+import Confirmation from './components/Confirmation';
+import StudentDetails from './components/StudentDetails';
 import Accueil from './components/Accueil';
 import Inscriptions from './components/Insciptions';
 import Connexion from './components/Connexion';
@@ -15,7 +16,9 @@ function App() {
   return (
     <Router>
       <nav style={{ padding: '10px', background: '#eee' }}>
-        <Link to="/">Connexion</Link> |{" "}
+         <Link to="/">Confirmation</Link> |{" "}
+        <Link to="/">StudentDetails</Link> |{" "}
+        <Link to="/connexion">Connexion</Link> |{" "}
         <Link to="/accueil">Accueil</Link> |{" "}
         <Link to="/inscriptions">Inscriptions</Link> |{" "}
         <Link to="/dashbord">Dashbord</Link> |{" "}
@@ -24,8 +27,10 @@ function App() {
         <Link to="/page3">Page3</Link>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Connexion />} />
+      <Routes> 
+         <Route path="/" element={<Confirmation/>} />
+        <Route path="/student-details/:id" element={<StudentDetails/>} />
+        <Route path="/connexion" element={<Connexion />} />
         <Route path="/accueil" element={<Accueil />} />
         <Route path="/inscriptions" element={<Inscriptions />} />
         <Route path="/dashbord" element={<Dashbord />} />
