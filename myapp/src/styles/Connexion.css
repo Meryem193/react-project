@@ -1,129 +1,274 @@
-/* Titre bleu centré au-dessus du semi-fond */
-.page-title {
-  color: #007bff; /* bleu */
-  font-size: 28px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Conteneur principal : centre tout */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Connexion.css */
+.connexion-container {
   min-height: 100vh;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  padding-top: 40px;
-}
-
-/* Boîte semi-transparente */
-.form-container {
-  background-color: rgba(0, 0, 0, 0.7); /* noir semi-transparent */
-  border-radius: 30px;                 /* coins très arrondis */
-  padding: 3px 2px;                  /* espace intérieur */
-  width: 30px;                       /* largeur fixe et compacte */
-  color: white;                      /* texte blanc */
   display: flex;
-  flex-direction: column;
-  align-items: center;               /* centre contenu horizontalement */
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-
-/* Onglets rôle centrés horizontalement */
-.role-tabs {
-  display: flex;
-  justify-content: center; /* CENTRE les onglets */
-  gap: 25px;
-  margin-bottom: 20px;
-}
-
-/* Style rôle */
-.role-text {
-  cursor: pointer;
-  font-weight: bold;
-  color: #ccc;
+  align-items: center;      /* centre verticalement */
+  justify-content: center;  /* centre horizontalement */
+  background: #87ceeb;      /* bleu ciel */
+  padding: 1rem;
   position: relative;
-  padding-bottom: 5px;
+  overflow: hidden;
 }
 
-/* Rôle actif en bleu avec soulignement */
-.role-text.active {
-  color: #007bff;
+/* Les autres styles restent les mêmes, juste un extrait ici */
+
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  z-index: 10;
+  transition: transform 0.5s;
 }
 
-.role-text.active::after {
-  content: '';
+.card-wrapper:hover {
+  transform: scale(1.01);
+}
+
+.card {
+  position: relative;
+  background: rgba(255 255 255 / 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+              0 10px 10px -5px rgb(0 0 0 / 0.04);
+  border: 1px solid rgba(255 255 255 / 0.3);
+  overflow: hidden;
+}
+
+
+.wave-svg {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 3px;
-  width: 100%;
-  background-color: #007bff;
-  border-radius: 2px;
+  right: 0;
+  height: 8rem;
+  opacity: 0.2;
+  z-index: 0;
 }
 
-/* Formulaire centré */
-form {
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  z-index: 10;
+  transition: transform 0.5s;
+}
+
+.card-wrapper:hover {
+  transform: scale(1.01);
+}
+
+.glow-effect {
+  position: absolute;
+  inset: -1rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #2563eb, #3b82f6, #6366f1);
+  opacity: 0.2;
+  filter: blur(12px);
+  animation: pulse 3s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.card {
+  position: relative;
+  background: rgba(255 255 255 / 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+              0 10px 10px -5px rgb(0 0 0 / 0.04);
+  border: 1px solid rgba(255 255 255 / 0.3);
+  overflow: hidden;
+}
+
+.card-header {
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #f9fafb, #ffffff);
+  position: relative;
+}
+
+.logo-wrapper {
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 9999px;
+  background: white;
+  padding: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.4),
+              0 4px 6px -2px rgb(59 130 246 / 0.2);
+  transition: transform 0.5s;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
 }
 
-/* Groupe de champ (label + input) */
-.input-group {
-  margin-bottom: 15px;
-  width: 100%;
-  max-width: 250px;
+.logo-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.logo-inner {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+  border: 2px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+
+.logo-inner:hover img {
+  transform: scale(1.1);
+}
+
+.logo-inner img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 0.5s;
+}
+
+.card-header h2 {
+  font-size: 1.875rem; /* 3xl */
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #1e40af, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.25rem;
+}
+
+.card-header p {
+  font-size: 0.875rem; /* sm */
+  color: #1e40af;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.tab-bar {
+  display: flex;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+  background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+}
+
+.tab-button {
+  flex: 1;
+  padding: 1.25rem 1rem;
+  font-size: 0.875rem; /* sm */
+  font-weight: 600;
+  color: #4b5563; /* gray-600 */
+  background: #f9fafb;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-button:hover {
+  color: #2563eb; /* blue-700 */
+  background: #f3f4f6; /* gray-100 */
+}
+
+.tab-button.active {
+  color: #1e40af; /* blue-800 */
+  background: linear-gradient(to bottom, #eff6ff, #ffffff);
+  font-weight: 700;
+}
+
+.tab-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+  fill: currentColor;
+}
+
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.form {
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
-.input-group label {
-  font-weight: bold;
-  color: #ccc;
-  margin-bottom: 5px;
-  text-align: left;
-  padding-left: 5px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  background-color: #ddd;
-  color: #000;
-  font-size: 14px;
-}
-
-/* Bouton centré */
-.login-btn {
-  width: 100%;
-  max-width: 250px;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  width: 200px;
-  height: auto;
+.form label {
   display: block;
-  margin: 0 auto 20px;
-  opacity: 0.9;
-  color:#ddd;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #374151; /* gray-700 */
+  font-size: 0.875rem;
 }
 
-.login-btn:hover {
-  background-color: #0056b3;
+.form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
 }
-.logo {
-  width: 300px;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px; /* supprime le grand espace sous le logo */
+
+.form input:focus {
+  border-color: #60a5fa; /* blue-400 */
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  color: white;
+  background-color: #2563eb; /* blue-600 */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:disabled {
+  background-color: #60a5fa; /* blue-400 */
+  cursor: not-allowed;
+}
+
+.submit-btn:not(:disabled):hover,
+.submit-btn:not(:disabled):focus {
+  background-color: #1e40af; /* blue-800 */
+  box-shadow: 0 0 10px #2563eb;
+}
+
+.footer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1e40af;
 }
 
