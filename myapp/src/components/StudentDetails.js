@@ -86,6 +86,8 @@ const StudentDetails = ({ updateStatut }) => {
           <p><strong>Année d'obtention :</strong> {etudiant.annéeDobtion || 'Non renseignée'}</p>
           <p><strong>Spécialité :</strong> {etudiant.spécialitée || 'Non renseignée'}</p>
           <p><strong>Moyenne :</strong> {etudiant.moyenne || 'Non renseignée'}</p>
+          <p><strong>Filière choisie :</strong> {etudiant.filièrechoisie|| 'Non renseignée'}</p>
+          <p><strong>Cycle :</strong> {etudiant.cycle || 'Non renseignée'}</p>
           {etudiant.autresInfos && (
             <>
               <p><strong>Adresse :</strong> {etudiant.autresInfos.adresse}</p>
