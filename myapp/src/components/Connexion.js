@@ -17,7 +17,6 @@ const Connexion = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simuler une requête réseau ou validation
     setTimeout(() => {
       setIsSubmitting(false);
       if (userType === "etudiant") {
@@ -28,7 +27,6 @@ const Connexion = () => {
     }, 1500);
   };
 
-  // Générer particules
   const particles = [...Array(40)].map((_, i) => {
     const size = Math.random() * 8 + 4;
     const opacity = Math.random() * 0.4 + 0.1;
@@ -148,6 +146,16 @@ const Connexion = () => {
                 required
                 autoComplete="current-password"
               />
+              <div style={{ textAlign: "right", marginTop: "4px" }}>
+                <a href="#" className="forgot-password">Mot de passe oublié ?</a>
+              </div>
+            </div>
+
+            <div style={{ textAlign: "right", marginTop: "10px" }}>
+              <label className="remember-me">
+                <input type="checkbox" name="remember" style={{ marginRight: "5px" }} />
+                Rester connecté
+              </label>
             </div>
 
             <button type="submit" disabled={isSubmitting} className="submit-btn">
@@ -155,7 +163,9 @@ const Connexion = () => {
             </button>
           </form>
 
-          <footer className="footer">&copy; {new Date().getFullYear()} FSAC - Tous droits réservés</footer>
+          <footer className="footer">
+            &copy; {new Date().getFullYear()} FSAC - Tous droits réservés
+          </footer>
         </div>
       </div>
     </div>
@@ -163,3 +173,4 @@ const Connexion = () => {
 };
 
 export default Connexion;
+
