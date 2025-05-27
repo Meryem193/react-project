@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/page3.css";
@@ -6,14 +7,10 @@ function Page3() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // On récupère les données envoyées de la page 2 (formData complet)
   const initialData = location.state?.formData || {};
-
-  // Ici on gère la photo ajoutée dans cette page
   const [photoIdentite, setPhotoIdentite] = useState(null);
   const [uploadStatus, setUploadStatus] = useState(false);
 
-  // Combine initialData + photoIdentite dans un seul objet formData
   const formData = { ...initialData, photoIdentite };
 
   const handleFileChange = (e) => {
@@ -30,7 +27,6 @@ function Page3() {
   };
 
   const handlePrevious = () => {
-    // Retour à page2 avec toutes les données (photoIdentite non obligatoire ici)
     navigate("/page2", { state: { formData } });
   };
 
@@ -39,12 +35,16 @@ function Page3() {
       alert("Veuillez télécharger une photo d'identité avant de voir le récapitulatif.");
       return;
     }
-    console.log("FormData envoyé à confirmation :", formData);
-    navigate("/Confirmation", { state: formData });
+
+    const photoUrl = URL.createObjectURL(photoIdentite);
+    const completeFormData = { ...formData, photoUrl };
+
+    console.log("FormData envoyé à Confirmation :", completeFormData);
+
+    navigate("/Confirmation", { state: completeFormData });
   };
 
   useEffect(() => {
-    // Si pas de données de base, retour accueil
     if (!location.state?.formData) {
       navigate("/");
     }
@@ -52,10 +52,7 @@ function Page3() {
 
   const formatFileName = (file) => {
     if (!file) return "";
-    if (file.name && file.name.length > 25) {
-      return file.name.substring(0, 25) + "...";
-    }
-    return file.name || "";
+    return file.name.length > 25 ? file.name.substring(0, 25) + "..." : file.name;
   };
 
   return (
@@ -103,7 +100,7 @@ function Page3() {
                   Photo d'identité <span className="required-mark">*</span>
                 </label>
               </div>
-              <div className={`upload-zone ${uploadStatus ? 'uploaded' : ''}`}>
+              <div className={`upload-zone ${uploadStatus ? "uploaded" : ""}`}>
                 <input
                   type="file"
                   name="photoIdentite"
@@ -131,22 +128,14 @@ function Page3() {
           </div>
 
           <div className="form-navigation">
-            <button
-              type="button"
-              className="btn-previous"
-              onClick={handlePrevious}
-            >
+            <button type="button" className="btn-previous" onClick={handlePrevious}>
               <span className="btn-icon">←</span>
               PRÉCÉDENT
             </button>
             <button type="submit" className="btn-submit">
               SOUMETTRE LA CANDIDATURE
             </button>
-            <button
-              type="button"
-              className="btn-recap green"
-              onClick={handleRecap}
-            >
+            <button type="button" className="btn-recap green" onClick={handleRecap}>
               VOIR LE RÉCAPITULATIF
             </button>
           </div>
@@ -157,7 +146,5 @@ function Page3() {
 }
 
 export default Page3;
-
-
 
 
